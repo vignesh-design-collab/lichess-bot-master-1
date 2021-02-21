@@ -24,15 +24,15 @@ engine:                      # engine settings
 #   cpuct: 3.1
   uci_options:               # arbitrary UCI options passed to the engine
   
-option name Contempt type spin : 0
+option name Contempt type spin : 24
 option name Analysis Contempt type combo : Both var Off var White var Black var Both
 option name Threads type spin : 4
 option name Hash type spin : 512
 option name Ponder type check : true
 option name MultiPV type spin : 1
 option name Skill Level type spin : 20
-option name Move Overhead type spin : 10
-option name Slow Mover type spin : 20
+option name Move Overhead type spin : 5000
+option name Slow Mover type spin : 50
 option name nodestime type spin : 0
 option name UCI_Chess960 type check : false
 option name UCI_AnalyseMode type check : false
