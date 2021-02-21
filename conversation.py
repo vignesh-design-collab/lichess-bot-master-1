@@ -1,4 +1,6 @@
-class Conversation:
+from time import time
+
+class Conversation():
     def __init__(self, game, engine, xhr, version, challenge_queue):
         self.game = game
         self.engine = engine
@@ -12,34 +14,33 @@ class Conversation:
         print("*** {} [{}] {}: {}".format(self.game.url(), line.room, line.username, line.text.encode("utf-8")))
         if (line.text[0] == self.command_prefix):
             self.command(line, game, line.text[1:].lower())
+        pass
 
     def command(self, line, game, cmd):
         if cmd == "commands" or cmd == "help":
-            self.send_reply(line, "Supported commands: !name, !howto, !eval, !queue")
+            self.send_reply(line, "Supported commands: !wait(only usable at the start of the game!),!name, !eval, !queue, !time")
         elif cmd == "wait" and game.is_abortable():
-            game.ping(60, 120)
-            self.send_reply(line, "Waiting 60 seconds...")
+            game.ping(30, 60)
+            self.send_reply(line, "Waiting 30 seconds...")
         elif cmd == "name":
-            self.send_reply(line, "{} (lichess-bot v{})".format(self.engine.name(), self.version))
-        elif cmd == "howto":
-            self.send_reply(line, "How to run your own bot: lichess.org/api#tag/Chess-Bot")
-        elif cmd == "eval" and line.room == "spectator":
+            self.send_reply(line, "Its a self learning bot! But my master ordered me not to tell my name!")
+        elif cmd == "eval":
             stats = self.engine.get_stats()
             self.send_reply(line, ", ".join(stats))
         elif cmd == "eval":
-            self.send_reply(line, "I don't tell that to my opponent, sorry.")
+            self.send_reply(line, "That's the evaluation of the position according to my engine! ")
         elif cmd == "queue":
             if self.challengers:
                 challengers = ", ".join(["@" + challenger.challenger_name for challenger in reversed(self.challengers)])
                 self.send_reply(line, "Challenge queue: {}".format(challengers))
             else:
-                self.send_reply(line, "No challenges queued.")
+                self.send_reply(line, "No challenges as yet.")
 
     def send_reply(self, line, reply):
         self.xhr.chat(self.game.id, line.room, reply)
 
 
-class ChatLine:
+class ChatLine():
     def __init__(self, json):
         self.room = json.get("room")
         self.username = json.get("username")
