@@ -3,7 +3,7 @@ url: "https://lichess.org/"  # lichess base URL
 
 engine:                      # engine settings
   dir: "./"          # dir containing engines, relative to this project
-  name: "stockfishmodern"        # binary name of the engine to use
+  name: "stockfishbmi2"        # binary name of the engine to use
   protocol: "uci"            # "uci" or "xboard"
   uci_ponder: true           # think on opponent time; only works if "protocol" is "uci"
   polyglot:
@@ -13,8 +13,6 @@ engine:                      # engine settings
         - komodo.bin
         - elo3300.bin
 #      atomic: # list of book file paths for variant atomic
-#        - engines/atomicbook1.bin
-#        - engines/atomicbook2.bin
 #      etc.
 #      use the same pattern for giveaway, crazyhouse, horde, kingofthehill, racingkings, 3check as well
       min_weight: 1            # selects move with highest weight but not below this value
@@ -27,22 +25,19 @@ engine:                      # engine settings
 option name Contempt type spin : 24
 option name Analysis Contempt type combo : Both var Off var White var Black var Both
 option name Threads type spin : 4
-option name Hash type spin : 512
+option name Hash type spin : 128
 option name Ponder type check : true
 option name MultiPV type spin : 1
 option name Skill Level type spin : 20
-option name Move Overhead type spin : 5000
-option name Slow Mover type spin : 50
+option name Move Overhead type spin : 10
+option name Slow Mover type spin : 10
 option name nodestime type spin : 0
-option name UCI_Chess960 type check : false
-option name UCI_AnalyseMode type check : false
+option name UCI_Chess960 type check : true
+option name UCI_AnalyseMode type check : true
 option name UCI_LimitStrength type check : false
 option name UCI_Elo type spin : 2850
 option name UCI_ShowWDL type check : false
-option name SyzygyPath type string : <empty>
-option name SyzygyProbeDepth type spin : 1
-option name Syzygy50MoveRule type check : true
-option name SyzygyProbeLimit type spin : 7
+
 
 #    go_commands:             # additional options to pass to the UCI go command
 #      nodes: 1000               # Search so many nodes only.
