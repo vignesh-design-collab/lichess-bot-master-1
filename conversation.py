@@ -18,12 +18,12 @@ class Conversation():
 
     def command(self, line, game, cmd):
         if cmd == "commands" or cmd == "help":
-            self.send_reply(line, "Supported commands: !wait(only usable at the start of the game!),!name, !eval, !queue, !time")
+            self.send_reply(line, "Supported commands: !wait(only usable at the start of the game!),!name, !eval, !queue")
         elif cmd == "wait" and game.is_abortable():
-            game.ping(30, 60)
-            self.send_reply(line, "Waiting 30 seconds...")
+            game.ping(45, 60)
+            self.send_reply(line, "Waiting 45 seconds...")
         elif cmd == "name":
-            self.send_reply(line, "Its a self learning bot! But my master ordered me not to tell my name!")
+            self.send_reply(line, "my name is stockfishreturns and the engine's name is stockfish 13 ")
         elif cmd == "eval":
             stats = self.engine.get_stats()
             self.send_reply(line, ", ".join(stats))
