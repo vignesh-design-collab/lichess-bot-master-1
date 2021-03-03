@@ -14,10 +14,12 @@ engine:                      # engine settings
         - elo3300.bin
         - bestbook.bin
         - network.bin
+          - Aaricia_2012.bin
+        - Drawkiller_EloZoom_big.bin
 #      atomic: # list of book file paths for variant atomic
 #      etc.
 #      use the same pattern for giveaway, crazyhouse, horde, kingofthehill, racingkings, 3check as well
-      min_weight: 100          # selects move with highest weight but not below this value
+      min_weight: 50          # selects move with highest weight but not below this value
       selection: "best_move" # move slection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in 2. and 3. case)
     max_depth: 245             # half move max depth
 # engine_options:           # any custom command line params to pass to the engine
@@ -26,13 +28,13 @@ engine:                      # engine settings
  
 option name Contempt type spin : 24
 option name Analysis Contempt type combo : Both var Off var White var Black var Both
-option name Threads type spin : 8
+option name Threads type spin : 4
 option name Hash type spin : 512
-option name Ponder type check : false
+option name Ponder type check : true
 option name MultiPV type spin : 1
 option name Skill Level type spin : 20
-option name Move Overhead type spin : 5000
-option name Slow Mover type spin : 10
+option name Move Overhead type spin : 1000
+option name Slow Mover type spin : 1
 option name nodestime type spin : 0
 option name UCI_Chess960 type check : false
 option name UCI_AnalyseMode type check : false
