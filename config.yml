@@ -8,13 +8,12 @@ engine:                      # engine settings
   uci_ponder: true           # think on opponent time; only works if "protocol" is "uci"
   polyglot:
     enabled: true           # activate polyglot book
-    book:.
+    book:
       standard: # list of book file paths for variant standard
         - komodo.bin
         - elo3300.bin
         - bestbook.bin
         - network.bin
-          - Aaricia_2012.bin
         - Drawkiller_EloZoom_big.bin
 #      atomic: # list of book file paths for variant atomic
 #      etc.
