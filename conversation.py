@@ -15,10 +15,10 @@ class Conversation:
 
     def command(self, line, game, cmd):
         if cmd == "commands" or cmd == "help":
-            self.send_reply(line, "Supported commands: !name, !howto, !eval, !queue ,!joke currently not working")
+            self.send_reply(line, "Supported commands: !name, !howto, !eval, !queue ,!joke chat")
         elif cmd == "wait" and game.is_abortable():
             game.ping(60, 120)
-            self.send_reply(line, "Waiting 60 seconds...")
+            self.send_reply(line, "Waiting 30 seconds...")
         elif cmd == "name":
             self.send_reply(line, "{} (lichess-bot v{})".format(self.engine.name(), self.version))
         elif cmd == "howto":
