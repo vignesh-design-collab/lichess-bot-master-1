@@ -2,7 +2,7 @@ token: "e5vMCu7jlqLnprSx"     # lichess OAuth2 Token
 url: "https://lichess.org/"  # lichess base URL
 
 engine:                      # engine settings
-  dir: " ./engine "         # dir containing engines, relative to this project
+  dir:        # dir containing engines, relative to this project
   name: "stockfishmodern"        # binary name of the engine to use
   protocol: "uci"            # "uci" or "xboard"
   uci_ponder: true           # think on opponent time; only works if "protocol" is "uci"
@@ -34,7 +34,7 @@ option name MultiPV type spin : 1
 option name Skill Level type spin : 20
 option name Move Overhead type spin : 1000
 option name Slow Mover type spin : 1
-option name nodestime type spin : 0
+option name nodestime type spin : 1000
 option name UCI_Chess960 type check : false
 option name UCI_AnalyseMode type check : false
 option name UCI_LimitStrength type check : false
