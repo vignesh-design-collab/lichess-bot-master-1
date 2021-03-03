@@ -2,13 +2,13 @@ token: "e5vMCu7jlqLnprSx"     # lichess OAuth2 Token
 url: "https://lichess.org/"  # lichess base URL
 
 engine:                      # engine settings
-  dir:        # dir containing engines, relative to this project
+  dir:  "./engine"   # dir containing engines, relative to this project
   name: "stockfishmodern"        # binary name of the engine to use
   protocol: "uci"            # "uci" or "xboard"
   uci_ponder: true           # think on opponent time; only works if "protocol" is "uci"
   polyglot:
     enabled: true           # activate polyglot book
-    book:
+    book: "./engine/bookname.bin"
       standard: # list of book file paths for variant standard
         - komodo.bin
         - elo3300.bin
